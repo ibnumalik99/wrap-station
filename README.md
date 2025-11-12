@@ -34,6 +34,7 @@ Adapun stack teknologi yang digunakan pada aplikasi ini adalah sebagai berikut
 - Jalankan server Laravel dengan perintah `php artisan serve` dan akan berjalan di `http://127.0.0.1:8000`
 - Jalankan perintah `npm run dev` untuk building FrontEnd
 
+Demo Video: https://drive.google.com/file/d/1WzbjQ2b8FgHySo2dD-RC1FfX8Vk81-5E/view?usp=drive_link
 Demikian peroject ini saya selesaikan untuk tahapan proses recruitment.
 
 Hormat saya.
