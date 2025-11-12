@@ -1,66 +1,40 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+## Aplication For vehicle inspection
+Aplikasi ini mecetak dan juga menyimpan hasil report inspector ke database. Ada sedikit perubahan pada User Interface agar lebih rapi dan juga menarik menarik. Ada sedikit modifikasi pada fitur customer signature (tanda tangan customer), dimana fitur ini di hilangkan karena dirasa checkbox confirmation cukup untuk proses konfirmasi. Aplikasi ini masih jauh dari kata sempurna dan hanya ditujukan untuk proses recruitment saja.
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+### Tentang aplikasi ini
+- Saat ini hanya ada 1 example user yang dapat login di aplikasi ini, yaitu user dengan kredensial berikut 
+`email: user@example.com` 
+`password: password123`
+- Pada halaman dashbord terbagi menjadi 4 section
+    - section yang pertama adalah section yang harus di isi secara keseluruhan karena pada section ini pengguna akan diminta untuk memasukan informasi utama.
+    - section yang kedua adalah section yang bisa di isi ataupun tidak di isi, section ini bertujuan untuk mendapatkan informasi/kerusakan dari kendaraan.
+    - section yang ketiga adalah section untuk mengambil mengambil gambar keseluruhan dari kendaraan tersebut (input foto di atas mewakili tempak depan, input foto yang di kanan mewakili tampak kanan, input foto yang dikiri mewakili tampak kiri, dan input foto yang dibawah mewakili tampak belakang) , section ini dapat di isi ataupun di kosongkan.
+    - section ke empat, ini adalah secrtion terakhir dan bertujuan untuk menyampaikan informasi terkait ketentuan dan kebijakan perusahaan, selain itu section ini juga bertujuan untuk mendapatkan konfirmasi customer.
+- Proses submit: Proses ini melakukan 2 aksi terhadap data yang di inputkan, menyimpan dan mencetak data/informasi. Data di simpan ke database dan setelah data tersimpan data akan di ketak menjadi file PDF yang dapat di download.
 
-## About Laravel
+### Teknologi
+Adapun stack teknologi yang digunakan pada aplikasi ini adalah sebagai berikut
+- PHP ^8.1
+- Laravel v.10 (Sebagai Base Project)
+- Inertia
+- npm v.9
+- Node.js v.20
+- React.Js (Sebagai FrontEnd)
+- Tailwind CSS (Sebagai styling)
+- Puppeter & Spatie Browser Shot (Sebagai liblary untuk pembuatan file/dokumen)
+- PosgreSQL (Sebagai Database)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### Setup
+- Jalankan perintah `git clone https://github.com/ibnumalik99/wrap-station.git` untuk cloning repository ini di local
+- Jalan perintah `cd wrap-station` untuk masuk ke directory project
+- Jalankan perintah `cp .env.example .env` untuk mengnyalin file enveroment
+- Setting database enveroment di .env
+- Jalankan migrasi juga seeder dengan perintah `php artisan migrate:fresh --seed`
+- Jalankan perintah `php artisan storage:link`
+- Jalankan server Laravel dengan perintah `php artisan serve` dan akan berjalan di `http://127.0.0.1:8000`
+- Jalankan perintah `npm run dev` untuk building FrontEnd
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Demikian peroject ini saya selesaikan untuk tahapan proses recruitment.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
-
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Hormat saya.
+Ibnu Malik
