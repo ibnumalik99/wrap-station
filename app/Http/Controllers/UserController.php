@@ -75,7 +75,7 @@ class UserController extends Controller
 
     public function print($carId)
     {
-        set_time_limit(120); // biar gak timeout
+        set_time_limit(120);
 
         $car = Car::with(['customer', 'parts', 'user'])->findOrFail($carId);
 
@@ -95,7 +95,7 @@ class UserController extends Controller
             ->setOption('executablePath', 'C:\Program Files\Google\Chrome\Application\chrome.exe')
             ->setOption('waitUntil', 'networkidle0')
             ->setOption('timeout', 120000)
-            ->setOption('baseUrl', config('app.url')) // penting agar url('storage/...') bisa terbaca
+            ->setOption('baseUrl', config('app.url'))
             ->showBackground()
             ->emulateMedia('print')
             ->format('A4')

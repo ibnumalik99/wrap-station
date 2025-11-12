@@ -90,12 +90,10 @@ const Dashboard = () => {
         try {
             const formData = new FormData();
 
-            // ========== CUSTOMER ==========
             Object.entries(values.customer).forEach(([key, val]) => {
                 formData.append(`customer[${key}]`, val ?? '');
             });
 
-            // ========== CAR ==========
             Object.entries(values.car).forEach(([key, val]) => {
                 if (val instanceof File) {
                     formData.append(`car[${key}]`, val);
@@ -104,7 +102,6 @@ const Dashboard = () => {
                 }
             });
 
-            // ========== PART ==========
             Object.entries(values.part).forEach(([key, val]) => {
                 if (val instanceof File) {
                     formData.append(`part[${key}]`, val);
@@ -113,22 +110,16 @@ const Dashboard = () => {
                 }
             });
 
-            // ========== CONFIRM TERMS ==========
             formData.append('confirm_terms', values.confirm_terms ? 1 : 0);
 
-            // ========== KIRIM REQUEST ==========
             const res = await axios.post('/form', formData, {
                 headers: { 'Content-Type': 'multipart/form-data' },
             });
 
             alert(res.data.message);
 
-            // buka halaman print di tab baru
             window.open(res.data.print_url, '_blank');
-
-            // redirect ke dashboard
             window.location.href = '/dashboard';
-
         } catch (error) {
             console.error(error);
             alert('Terjadi kesalahan saat mengirim data!');
